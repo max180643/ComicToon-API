@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-router.get('*', (req, res) => {
+router.all('*', (req, res) => {
   res.status(404).send({
     status: 'failure',
     response: 'route not found.'
