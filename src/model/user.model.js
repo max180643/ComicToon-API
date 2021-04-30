@@ -1,26 +1,26 @@
-module.exports = (sequelize, Sequelize) => {
+module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
     id: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       field: 'id',
       primaryKey: true,
       allowNull: false,
       unique: true
     },
     frist_name: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       field: 'frist_name'
     },
     last_name: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       field: 'last_name'
     },
     image_path: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       field: 'image_path'
     },
     email: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       field: 'email',
       validate: {
         isEmail: true
@@ -29,15 +29,15 @@ module.exports = (sequelize, Sequelize) => {
       unique: true
     },
     role: {
-      type: Sequelize.STRING,
+      type: DataTypes.STRING,
       field: 'role'
     },
     dob: {
-      type: Sequelize.DATE,
+      type: DataTypes.DATE,
       field: 'dob'
     },
     coin: {
-      type: Sequelize.INTEGER,
+      type: DataTypes.INTEGER,
       field: 'coin'
     }
   })

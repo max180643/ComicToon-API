@@ -27,10 +27,32 @@ const sequelize = new Sequelize(
 // })
 
 const db = {}
-db.Sequelize = Sequelize
+db.Sequelize = Sequelize // Datatypes
 db.sequelize = sequelize
 
 // Import model
-db.user = require('../model/user.js')(sequelize, Sequelize)
+db.user = require('../model/user.model')(sequelize, Sequelize)
+db.favorite = require('../model/favorite.model')(sequelize, Sequelize)
+db.episodeRead = require('../model/episodeRead.model')(sequelize, Sequelize)
+db.episodeBuy = require('../model/episodeBuy.model')(sequelize, Sequelize)
+
+// Associations
+db.user.hasMany(db.favorite, { as: 'favorite' })
+db.favorite.belongsTo(db.user, {
+  foreignKey: 'userId',
+  as: 'user'
+})
+
+db.user.hasMany(db.episodeRead, { as: 'episodeRead' })
+db.episodeRead.belongsTo(db.user, {
+  foreignKey: 'userId',
+  as: 'user'
+})
+
+db.user.hasMany(db.episodeBuy, { as: 'episodeBuy' })
+db.episodeBuy.belongsTo(db.user, {
+  foreignKey: 'userId',
+  as: 'user'
+})
 
 module.exports = db
