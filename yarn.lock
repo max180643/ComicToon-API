@@ -169,7 +169,7 @@ astral-regex@^2.0.0:
   resolved "https://registry.yarnpkg.com/astral-regex/-/astral-regex-2.0.0.tgz"
   integrity sha512-Z7tMw1ytTXt5jqMcOP+OQteU1VuNK9Y02uuJtKQ1Sv69jXQKKg5cibLwGJow8yzZP+eAc18EmLGPal0bp36rvQ==
 
-aws-sdk@^2.897.0:
+aws-sdk@^2.368.0, aws-sdk@^2.897.0:
   version "2.897.0"
   resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.897.0.tgz#cb3594639bd57badd4908870d7f77f814f6a3166"
   integrity sha512-GnjnZ5kgmeGe1BW+wsfRJ8Hu5mU7py/GBLXikSgtNPbMmF66yTMfND99hpS5U7m3SSaHG0qBYGVySC7Z+U1AJA==
@@ -565,6 +565,15 @@ duplexer3@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.4.tgz"
   integrity sha1-7gHdHKwO08vH/b6jfcCo8c4ALOI=
+
+dynamite@^0.10.2:
+  version "0.10.2"
+  resolved "https://registry.yarnpkg.com/dynamite/-/dynamite-0.10.2.tgz#f2781854a71ec0515bdc5411150082372093f35d"
+  integrity sha512-ENJ9ViY4t+izA9a7h9XelTOgtJNG7Gm/aMqgoU/iZWChmqiQoRvT3QH636zyOcmT4PVIJV8k0co1m3m80cPX2w==
+  dependencies:
+    aws-sdk "^2.368.0"
+    kew "0.7.0"
+    typ "0.6.3"
 
 ee-first@1.1.1:
   version "1.1.1"
@@ -1355,6 +1364,11 @@ json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz"
   integrity sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=
+
+kew@0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/kew/-/kew-0.7.0.tgz#79d93d2d33363d6fdd2970b335d9141ad591d79b"
+  integrity sha1-edk9LTM2PW/dKXCzNdkUGtWR15s=
 
 keyv@^3.0.0:
   version "3.1.0"
@@ -2208,6 +2222,11 @@ touch@^3.1.0:
   integrity sha512-WBx8Uy5TLtOSRtIq+M03/sKDrXCLHxwDcquSP2c43Le03/9serjQBIztjRz6FkJez9D/hleyAXTBGLwwZUw9lA==
   dependencies:
     nopt "~1.0.10"
+
+typ@0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/typ/-/typ-0.6.3.tgz#9fbe66d8e4131e127c0d782daa456fd5c6a5ded3"
+  integrity sha1-n75m2OQTHhJ8DXgtqkVv1cal3tM=
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
