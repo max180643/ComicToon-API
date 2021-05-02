@@ -1,6 +1,7 @@
 const multer = require('multer')
 const multerS3 = require('multer-s3')
 const s3 = require('../util/s3.config')
+const { nanoid } = require('nanoid')
 const dotenv = require('dotenv')
 
 dotenv.config()
@@ -28,7 +29,7 @@ const uploadImageS3 = multer({
       cb(null, { fieldName: file.fieldname })
     },
     key: (req, file, cb) => {
-      cb(null, Date.now().toString() + '-' + file.originalname)
+      cb(null, `cover-${nanoid(10)}-${file.originalname}`)
     }
   }),
   fileFilter: imageFilter

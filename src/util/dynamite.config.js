@@ -9,6 +9,6 @@ const options = {
   secretAccessKey: process.env.AWS_SECRET_KEY
 }
 
-const client = new Dynamite.Client(options)
+const dynamiteClient = new Dynamite.Client(options)
 
-module.exports = client
+module.exports = dynamiteClient
