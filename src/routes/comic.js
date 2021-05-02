@@ -67,17 +67,20 @@ router.get('/all', async (req, res) => {
 // Get comic from id
 router.get('/id/:id', async (req, res) => {
   const comicId = req.params.id
+
   // Get comic from DynamoDB
-  await dynamiteClient
-    .getItem(process.env.DYNAMODB_BOOK_TABLE_NAME)
-    .setHashKey('id', comicId)
-    .execute()
-    .then((data) => {
-      res.status(200).send({
-        status: 'success',
-        response: filterComicData(data.result)
+  if (comicId) {
+    await dynamiteClient
+      .getItem(process.env.DYNAMODB_BOOK_TABLE_NAME)
+      .setHashKey('id', comicId)
+      .execute()
+      .then((data) => {
+        res.status(200).send({
+          status: 'success',
+          response: filterComicData(data.result)
+        })
       })
-    })
+  }
 })
 
 module.exports = router
