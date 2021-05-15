@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define('user', {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       field: 'id',
       primaryKey: true,
       allowNull: false,
@@ -9,15 +9,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     frist_name: {
       type: DataTypes.STRING,
-      field: 'frist_name'
+      field: 'frist_name',
+      allowNull: true
     },
     last_name: {
       type: DataTypes.STRING,
-      field: 'last_name'
+      field: 'last_name',
+      allowNull: true
     },
     image_path: {
       type: DataTypes.STRING,
-      field: 'image_path'
+      field: 'image_path',
+      allowNull: true
     },
     email: {
       type: DataTypes.STRING,
@@ -30,15 +33,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     role: {
       type: DataTypes.STRING,
-      field: 'role'
+      field: 'role',
+      defaultValue: 'user'
     },
     dob: {
       type: DataTypes.DATE,
-      field: 'dob'
+      field: 'dob',
+      allowNull: true
     },
     coin: {
       type: DataTypes.INTEGER,
-      field: 'coin'
+      field: 'coin',
+      defaultValue: 0
     }
   })
   return User
