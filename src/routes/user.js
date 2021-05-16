@@ -71,7 +71,46 @@ router.put('/update/:id', async (req, res) => {
 
   res.status(200).send({
     status: 'success',
-    response: updateUser === 1 ? 'user update.' : 'user not update.'
+    response: updateUser[0] === 1 ? 'user update.' : 'user not update.'
+  })
+})
+
+// Topup coin with id
+router.post('/topup/:id', async (req, res) => {
+  const coin = {
+    price29: 100,
+    price79: 300,
+    price129: 500,
+    price189: 1000,
+    price399: 1500
+  }
+
+  const userId = req.params.id
+  const userData = req.body
+  let user = null
+  let updateUser = []
+  let currentCoin = null
+
+  if (userId) {
+    user = await User.findByPk(userId)
+    currentCoin = user.coin
+  }
+
+  if (coin[userData.package]) {
+    updateUser = await sequelize.transaction((t) => {
+      return User.update(
+        {
+          coin: currentCoin + coin[userData.package]
+        },
+        { where: { id: userId } },
+        { transaction: t }
+      )
+    })
+  }
+
+  res.status(200).send({
+    status: 'success',
+    response: updateUser[0] === 1 ? 'coin added.' : 'coin not added.'
   })
 })
 
